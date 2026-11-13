@@ -1,0 +1,28 @@
+@startuml
+start
+
+:Entrar a la sección del chatbot;
+:Escribir duda sobre normatividad o tips;
+:Presionar "Enviar";
+
+:Validar campo de texto;
+if (¿El mensaje está vacío?) then (Sí)
+    :Mostrar error "Escribe un mensaje";
+else (No)
+    :Recibir **prompt_usuario** en el Backend;
+    :Adjuntar instrucciones base (System Prompt);
+    :Llamar a **enviarConsultaAPI()**;
+    
+    :Procesar consulta en API Externa;
+    :Generar **respuesta_bot**;
+    
+    :Llamar a **recibirRespuestaAPI()**;
+    :Registrar **fecha_hora** y **respuesta_bot** en BD;
+    
+    :Llamar a **mostrarMensaje()**;
+    :Imprimir texto en la pantalla del chat;
+    :Leer la respuesta en tiempo real;
+endif
+
+stop
+@enduml

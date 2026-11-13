@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor "Usuario" as U
+actor "Editor" as E
+actor "API de IA" as API <<Sistema>>
+
+U <|-- E
+
+rectangle "Plataforma de Aprendizaje IA" {
+    
+    usecase "Iniciar Sesión" as UC_Login
+    usecase "Consultar Módulos\n(Tips, Normativas, Lecciones)" as UC_Modulos
+    usecase "Interactuar con Agente IA" as UC_Chat
+    usecase "Enviar consulta y recibir respuesta" as UC_API
+    
+    usecase "Gestionar Módulos\n(Crear, Editar, Eliminar)" as UC_Gestion
+    usecase "Consultar lista de Usuarios" as UC_Usuarios
+}
+
+U --> UC_Login
+U --> UC_Modulos
+U --> UC_Chat
+
+E --> UC_Gestion
+E --> UC_Usuarios
+
+UC_Chat ..> UC_API : <<include>>
+UC_API --> API
+
+note bottom of UC_Gestion : Requiere nivel de\n permiso de editor.
+
+@enduml

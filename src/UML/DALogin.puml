@@ -1,0 +1,28 @@
+@startuml
+start
+
+:Ingresar Usuario y contraseña;
+:Validar credenciales y nivel_permiso;
+
+if (¿Qué tipo de usuario es?) then (Editor)
+    :Acceder al Panel de Administración;
+    :Seleccionar "Crear nuevo Módulo";
+    :Ingresar título, categoría y descripción;
+    :Presionar "Guardar";
+    
+    if (¿Faltan datos obligatorios?) then (Sí)
+        :Mostrar advertencia;
+    else (No)
+        :Generar **id_modulo**;
+        :Guardar registro en la Base de Datos;
+        :Visualizar el módulo publicado;
+    endif
+
+else (Usuario Normal)
+    :Ver catálogo de módulos (Tips, Normas);
+    :Seleccionar módulo a leer;
+    :Consultar contenido;
+endif
+
+stop
+@enduml

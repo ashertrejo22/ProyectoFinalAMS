@@ -1,0 +1,45 @@
+@startuml
+    class Usuario{
+        -id_usuario: int
+        -nombre: String
+        -email: String
+        -contraseña: String
+        --
+        +Usuario():
+        +mostrarDatos():
+    }
+
+    class Editor{
+        -nvlPrivilegio:int
+        --
+        +Editor():
+        +subirDatos():
+    }
+
+    class Modulo{
+        -id_modulo: int
+        -titulo: String
+        -categoria: String
+        -descripcion: String
+        --
+        +Modulo():
+        +mostrarContenido():
+    }
+
+    class AgenteIA{
+        -id_chat:int
+        -prompt_usuario: String
+        -respuesta_bot: String
+        -fecha_hora: DateTime
+        --
+        +AgenteIA():
+        +enviarConsultaAPI():
+        recibirRespuestaAPI():
+        +mostrarMensaje():
+    }
+
+    Usuario <|-- Editor
+    Usuario "1" -- "0..*" AgenteIA : " Consulta >"
+    Usuario "1" -- "1..*" Modulo : " Visualiza >"
+    Editor "1" -- "0..*" Modulo : " Gestiona >"
+@enduml
