@@ -1,0 +1,27 @@
+@startgantt
+language es
+
+ -- EPIC 1: Gestión de Usuarios (6 días hábiles) --
+ [Diseño UI y tabla BD Usuarios] lasts 2 days
+ [Dev: HU-01 Registro e Inicio] lasts 3 days
+ [Dev: HU-02 Roles y Permisos] lasts 1 days
+ [Diseño UI y tabla BD Usuarios] -> [Dev: HU-01 Registro e Inicio]
+ [Dev: HU-01 Registro e Inicio] -> [Dev: HU-02 Roles y Permisos]
+
+ -- EPIC 2: Módulos Educativos (7 días hábiles) --
+ [Diseño UI de Tarjetas] lasts 2 days
+ [Dev: HU-03 Catálogo de Contenidos] lasts 3 days
+ [Dev: HU-04 Gestión de Contenido] lasts 2 days
+ [Dev: HU-02 Roles y Permisos] -> [Diseño UI de Tarjetas]
+ [Diseño UI de Tarjetas] -> [Dev: HU-03 Catálogo de Contenidos]
+ [Dev: HU-03 Catálogo de Contenidos] -> [Dev: HU-04 Gestión de Contenido]
+ 
+ -- EPIC 3: Asistente IA y Entrega (7 días hábiles) --
+ [Dev: Widget Flotante Chat] lasts 3 days
+ [Dev: Conexión API Externa] lasts 3 days
+ [Review y Entrega Final] lasts 1 days
+ [Dev: HU-04 Gestión de Contenido] -> [Dev: Widget Flotante Chat]
+ [Dev: Widget Flotante Chat] -> [Dev: Conexión API Externa]
+ [Dev: Conexión API Externa] -> [Review y Entrega Final]
+ 
+@endgantt
