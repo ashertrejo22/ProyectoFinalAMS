@@ -1,0 +1,36 @@
+@startuml
+
+entity "Usuario" as usuario {
+    *id_usuario : INT <<PK>>
+    --
+    *nombre: VARCHAR (100)
+    *apellido: VARCHAR (100)
+    *fechaNacimiento:DATE
+    *genero: VARCHAR(20)
+    *email: VARCHAR(100)
+    *contraseña:VARCHAR(100)
+    *rol: VARCHAR(20)
+}
+
+entity "Modulo" as modulo{
+    *id_modulo : INT <<PK>>
+    *id_usuario: INT <<FK>>
+    --
+    *titulo: VARCHAR (100)
+    *categoria: VARCHAR(100)
+    *descripcion: VARCHAR (500)
+}
+
+entity "AgenteIA" as agenteia{
+    *id_chat : INT <<PK>>
+    *id_usuario: INT <<FK>>
+    --
+    *prompt_usuario: VARCHAR (5000)
+    *respuesta_bot: VARCHAR(5000)
+    *fecha_hora: DATETIME
+}
+
+
+usuario ||--{ modulo : "Crea / Gestiona / Observa >"
+usuario ||--{ agenteia : "Realiza consultas >"
+@enduml

@@ -19,7 +19,7 @@ if (¿Qué tipo de usuario es?) then (Editor)
     endif
 
 else (Usuario Normal)
-    :Ver catálogo de módulos (Tips, Normas);
+    :Ver catálogo de módulos (Consejos, Reglas, Lecciones);
     :Seleccionar módulo a leer;
     :Consultar contenido;
 endif

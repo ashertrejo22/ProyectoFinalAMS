@@ -2,6 +2,9 @@
     class Usuario{
         -id_usuario: int
         -nombre: String
+        -apellido: String
+        -fechaNacimiento: Date
+        -genero: String
         -email: String
         -contraseña: String
         --
@@ -39,7 +42,7 @@
     }
 
     Usuario <|-- Editor
-    Usuario "1" -- "0..*" AgenteIA : " Consulta >"
-    Usuario "1" -- "1..*" Modulo : " Visualiza >"
-    Editor "1" -- "0..*" Modulo : " Gestiona >"
+    Usuario "1" -- "N" AgenteIA : " Consulta >"
+    Usuario "1" -- "N" Modulo : " Visualiza >"
+    Editor "1" -- "N" Modulo : " Gestiona >"
 @enduml
